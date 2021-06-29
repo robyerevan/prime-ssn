@@ -5,7 +5,12 @@
  * Author: Robert Sargsyan
  * */
 
-// Check if the give number is prime
+
+/**
+ * Check if the give number is prime
+ * @param $number
+ * @return bool
+ */
 function isPrime($number){
     if ($number == 1)
         return false;
@@ -20,13 +25,27 @@ $prime2Digit = [];
 $prime3Digit = [];
 $prime4Digit = [];
 
-// Function to find next prime number after given n number
-// I am not creating this function from scratch as php language has such function, otherwise look isPrime() function
+
+/**
+ *
+ * Function to find next prime number after given n number.
+ * I am not creating this function from scratch as php language has such function,
+ * otherwise look isPrime() function
+ *
+ * @param $n
+ * @return resource
+ */
 function nextPrime($n) {
     return gmp_nextprime($n);
 }
 
 
+/**
+ * Generate prime numbers for a given range
+ * @param $start
+ * @param $end
+ * @return array
+ */
 function generatePrimes($start, $end) {
     $primeNumbers = [];
     $length = strlen($end);
