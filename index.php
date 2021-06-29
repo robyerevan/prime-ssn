@@ -3,7 +3,6 @@
 /*
  * generate all prime number SSNs that consist of only prime numbers
  * Author: Robert Sargsyan
- * runtime ~48 second
  * */
 
 // Check if the give number is prime
@@ -27,23 +26,26 @@ function nextPrime($n) {
     return gmp_nextprime($n);
 }
 
-// find 2 digit prime numbers
-for ($i = 2; ; ) {
+
+function generatePrimes($start, $end) {
+    $primeNumbers = [];
+    $length = strlen($end);
+for ($i = $start; ; ) {
     $primeNumber = gmp_nextprime($i);
-    if ($primeNumber > 10)
+    if ($primeNumber > $end)
         break;
     $i = $primeNumber;
-    $prime2Digit[] = str_pad($primeNumber, 2, '0', STR_PAD_LEFT);
+    $primeNumbers[] = str_pad($primeNumber, $length, '0', STR_PAD_LEFT);
+}
+return $primeNumbers;
 }
 
+
+// find 2 digit prime numbers
+$prime2Digit = generatePrimes(2, 10);
+
 // find 3 digit prime numbers
-for ($i = 10; ; ) {
-    $primeNumber = gmp_nextprime($i);
-    if ($primeNumber > 999)
-        break;
-    $i = $primeNumber;
-    $prime3Digit[] = str_pad($primeNumber, 3, '0', STR_PAD_LEFT);
-}
+$prime3Digit = generatePrimes(10, 999);
 
 // Merge 2 digit primes into 3 digit prime array to avoid double search
 $i = count($prime2Digit);
@@ -54,13 +56,7 @@ while($i) {
 
 
 // find 4 digit prime numbers
-for ($i = 1000; ; ) {
-    $primeNumber = gmp_nextprime($i);
-    if ($primeNumber > 9999)
-        break;
-    $i = $primeNumber;
-    $prime4Digit[] = str_pad($primeNumber, 4, '0', STR_PAD_LEFT);
-}
+$prime4Digit = generatePrimes(1000, 9999);
 
 // Merge 3 digit primes into 4 digit prime array to avoid double search
 $i = count($prime3Digit);
