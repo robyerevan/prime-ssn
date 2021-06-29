@@ -72,11 +72,11 @@ while($i) {
 
 //generate SSN numbers and validate if they are prime
 $primeSSN =[];
-foreach ($prime2Digit as $p2) {
-    foreach ($prime3Digit as $p3) {
+foreach ($prime3Digit as $p3) {
+    foreach ($prime2Digit as $p2) {
         foreach ($prime4Digit as $p4) {
-            if ( isPrime((int)($p2.$p3.$p4)) ) {
-                $primeSSN[] = $p2 . '-' . $p3 . '-' . $p4;
+            if ( isPrime((int)($p3.$p2.$p4)) ) {
+                $primeSSN[] = $p3 . '-' . $p2 . '-' . $p4;
             }
         }
     }
