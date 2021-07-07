@@ -2,6 +2,7 @@
 
 /*
  * generate all prime number SSNs that consist of only prime numbers
+ * usserviceanimals.org coding challenge
  * Author: Robert Sargsyan
  * */
 
@@ -98,4 +99,6 @@ foreach ($prime3Digit as $p3) {
 }
 
 // output SSN array
-print_r($primeSSN);
+foreach ($primeSSN as $ssn ) {
+    echo $ssn . PHP_EOL;
+}
