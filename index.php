@@ -62,7 +62,7 @@ return $primeNumbers;
 
 
 // find 2 digit prime numbers
-$prime2Digit = generatePrimes(2, 10);
+$prime2Digit = generatePrimes(1, 10);
 
 // find 3 digit prime numbers
 $prime3Digit = generatePrimes(10, 999);
