@@ -62,10 +62,10 @@ return $primeNumbers;
 
 
 // find 2 digit prime numbers
-$prime2Digit = generatePrimes(1, 10);
+$prime2Digit = generatePrimes(1, 99);
 
 // find 3 digit prime numbers
-$prime3Digit = generatePrimes(10, 999);
+$prime3Digit = generatePrimes(100, 999);
 
 // Merge 2 digit primes into 3 digit prime array to avoid double search
 $i = count($prime2Digit);
